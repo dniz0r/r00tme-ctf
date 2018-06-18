@@ -1,0 +1,18 @@
+WebServer Challenge 32 - Improper Redirect
+
+Synopsis - Get Access to the Index
+
+The point here is to abuse the way the application is redirecting.
+
+By Making a direct HTTP request to:
+http://challenge01.root-me.org/web-serveur/ch32/index.php 
+
+When intercepting the request we get this message before the 302 ReDirect happens
+
+
+<p>Yeah ! The redirection is OK, but without exit() after the header('Location: ...'), PHP just continue the execution and send the page content !...</p>
+<p><a href="http://cwe.mitre.org/data/definitions/698.html">CWE-698: Execution After Redirect (EAR)</a></p>
+<p>The flag is : ExecutionAfterRedirectIsBad</p>
+</body>
+</html>
+
